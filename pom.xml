@@ -20,6 +20,10 @@
 		<java.version>17</java.version>
 		<lombok.version>1.18.30</lombok.version>
 		<postgresql.version>42.7.2</postgresql.version>
+		<mapstract.version>1.5.5.Final</mapstract.version>
+		<hibernate-validator.version>8.0.0.Final</hibernate-validator.version>
+		<jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
+		<spring-boot-starter-security.version>3.2.2</spring-boot-starter-security.version>
 	</properties>
 
 	<dependencies>
@@ -37,6 +41,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>${spring-boot-starter-security.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
@@ -49,11 +59,29 @@
 			<optional>true</optional>
 			<version>${lombok.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
+
 		<dependency>
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct</artifactId>
-			<version>1.5.5.Final</version>
+			<version>${mapstract.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-processor</artifactId>
+			<version>${mapstract.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate-validator.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jakarta.validation</groupId>
+			<artifactId>jakarta.validation-api</artifactId>
+			<version>${jakarta.validation-api.version}</version>
 		</dependency>
 
 		<dependency>
