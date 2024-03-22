@@ -4,13 +4,16 @@ import com.development.task.domain.task.Status;
 import com.development.task.web.dto.vaqlidation.OnCreate;
 import com.development.task.web.dto.vaqlidation.OnUpdate;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
+
 import java.time.LocalDateTime;
 @Data
+@Schema(description = "Task Dto")
 public class TaskDto {
     @NotNull(message = "id most be not null", groups = OnUpdate.class)
     private Long id;

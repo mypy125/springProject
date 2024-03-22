@@ -1,11 +1,12 @@
-package com.development.task.repository.impl;
+package com.development.task.repository;
 
 import com.development.task.domain.user.Role;
 import com.development.task.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
-
+@Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findById(Long id);
     Optional<User> findByUsername(String username);

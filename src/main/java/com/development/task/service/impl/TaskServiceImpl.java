@@ -2,10 +2,12 @@ package com.development.task.service.impl;
 
 import com.development.task.domain.task.Task;
 import com.development.task.service.TaskService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
+@RequiredArgsConstructor
 public class TaskServiceImpl implements TaskService {
     @Override
     public Task getById(Long id) {

@@ -3,14 +3,17 @@ package com.development.task.domain.user;
 import com.development.task.domain.task.Task;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
-
 @Data
 @Table(name = "users")
+@Getter
+@Setter
 @Entity
 public class User implements Serializable {
     @Id
