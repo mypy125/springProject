@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
-@Table(name = "tasks")
 @Entity
+@Table(name = "tasks")
 public class Task implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
