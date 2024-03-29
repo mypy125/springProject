@@ -24,7 +24,7 @@ services:
       - minio
       - redis
     env_file:
-      - .env
+      - .env.example
     ports:
       - '8080:8080'
 

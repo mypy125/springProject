@@ -31,6 +31,7 @@
 		<graphql-java-kickstart.version>15.2.0</graphql-java-kickstart.version>
 		<graphql-java-extended-scalars.version>21.0</graphql-java-extended-scalars.version>
 		<preliqubase-starter.vesion>1.5.0</preliqubase-starter.vesion>
+		<swagger-model.version>2.2.21</swagger-model.version>
 	</properties>
 
 	<dependencies>
@@ -75,6 +76,11 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-graphql</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
 			<version>${liquibase.version}</version>
@@ -116,6 +122,12 @@
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct-processor</artifactId>
 			<version>${mapstract.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.swagger.core.v3</groupId>
+			<artifactId>swagger-models</artifactId>
+			<version>${swagger-model.version}</version>
 		</dependency>
 
 		<dependency>
