@@ -1,6 +1,7 @@
 package com.development.task.conf;
 
 import com.development.task.web.security.JwtTokenFilter;
+import com.development.task.web.security.exception.CustomSecurityExceptionHandler;
 import io.minio.MinioClient;
 import com.development.task.service.props.MinioProperties;
 import com.development.task.web.security.JwtTokenProvider;
@@ -16,6 +17,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler;
+import org.springframework.security.access.expression.method.MethodSecurityExpressionHandler;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -34,8 +37,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor(onConstructor =  @__(@Lazy))
 public class ApplicationConfig {
     private final JwtTokenProvider tokenProvider;
-    private final ApplicationContext applicationContext;
     private final MinioProperties minioProperties;
+    private final ApplicationContext applicationContext;
 
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -49,6 +52,12 @@ public class ApplicationConfig {
        return configuration.getAuthenticationManager();
     }
 
+    @Bean
+    public MethodSecurityExpressionHandler expressionHandler(){
+        DefaultMethodSecurityExpressionHandler expressionHandler = new CustomSecurityExceptionHandler();
+        expressionHandler.setApplicationContext(applicationContext);
+        return expressionHandler;
+    }
     @Bean
     public MinioClient minioClient(){
         return MinioClient.builder().endpoint(minioProperties.getUrl())

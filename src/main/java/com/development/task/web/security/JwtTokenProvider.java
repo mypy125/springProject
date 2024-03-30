@@ -29,7 +29,6 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class JwtTokenProvider {
     private final JwtProperties jwtProperties;
-
     private final UserDetailsService userDetailsService;
     private final UserService userService;
     private SecretKey key;
